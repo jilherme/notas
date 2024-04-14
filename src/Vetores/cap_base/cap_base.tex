@@ -1,22 +1,16 @@
 %Este trabalho está licenciado sob a Licença Atribuição-CompartilhaIgual 4.0 Internacional Creative Commons. Para visualizar uma cópia desta licença, visite http://creativecommons.org/licenses/by-sa/4.0/deed.pt_BR ou mande uma carta para Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 
-\chapter{Bases e coordenadas}\label{cap_base}
-\badgeRevisar
+\chapter{Bases e Coordenadas}\label{cap_base}
 
-\section{Combinação linear}\label{cap_base_sec_comblin}
-\badgeRevisar
-
-\begin{flushright}
-  \href{https://archive.org/details/combinacao-linear}{$\blacktriangleright$ Vídeo disponível!}
-\end{flushright}
+\section{Combinação Linear}\label{cap_base_sec_comblin}
 
 Dados vetores $\vec{u}_1$, $\vec{u}_2$, $\dotsc$, $\vec{u}_n$ e números reais $c_1$, $c_2$, $\dotsc$, $c_n$, com $n$ inteiro positivo, chamamos de
 \begin{equation}
   {\color{blue}\vec{u} = c_1\vec{u}_1 + c_2\vec{u}_2 + \cdots + c_n\vec{u}_n}
 \end{equation}
-uma \emph{combinação linear} de $\vec{u}_1$, $\vec{u}_2$, $\dotsc$, $\vec{u}_n$. Neste caso, também dizemos que $\vec{u}$ é \emph{gerado} pelos vetores $\vec{u}_1$, $\vec{u}_2$, $\dotsc$, $\vec{u}_n$ ou, equivalentemente, que estes vetores \emph{geram} o vetor $\vec{u}$.
+uma \hl{\emph{combinação linear} de $\vec{u}_1$, $\vec{u}_2$, $\dotsc$, $\vec{u}_n$}. Neste caso, também dizemos que \hl{$\vec{u}$ é \emph{gerado} pelos vetores $\vec{u}_1$, $\vec{u}_2$, $\dotsc$, $\vec{u}_n$} ou, equivalentemente, que estes vetores \emph{geram} o vetor $\vec{u}$.
 
-\begin{ex}\label{ex:comblinear}
+\begin{ex}\label{cap_base_sec_comblin:ex:comblinear}
   Sejam dados os vetores $\vec{u}$, $\vec{v}$, $\vec{w}$ e $\vec{z}$. Então, temos:
   \begin{enumerate}[a)]
   \item $\vec{u}_1 = \frac{1}{2}\vec{v} + \sqrt{2}\vec{z}$ é uma combinação linear dos vetores $\vec{v}$ e $\vec{z}$.
@@ -26,39 +20,93 @@ uma \emph{combinação linear} de $\vec{u}_1$, $\vec{u}_2$, $\dotsc$, $\vec{u}_n
   \end{enumerate}
 \end{ex}
 
-\begin{obs}\normalfont{(Interpretação geométrica)}
-  \begin{enumerate}[a)]
-  \item Uma combinação linear não nula envolvendo um único vetor $\vec{u}$ é um vetor paralelo a $\vec{u}$. De fato, seja
-    \begin{equation}
-      \vec{v} = c\vec{u},\quad c\neq 0,
-    \end{equation}
-    i.e. $\vec{v}$ é combinação linear não nula de $\vec{u}$. Então, $\vec{v}$ tem a mesma direção de $\vec{u}$.
-  \item Uma combinação linear não nula envolvendo dois vetores $\vec{u}$ e $\vec{v}$ é coplanar a estes vetores. De fato, seja
-    \begin{equation}
-      \vec{w} = c_1\vec{u} + c_2\vec{v},\quad c_1\cdot c_2 \neq 0,
-    \end{equation}
-    e $\pi$ o plano determinado pelas representações de $\vec{u} = \overrightarrow{AB}$ e $\vec{v} = \overrightarrow{AC}$. Logo, seguindo a regra do paralelogramo, vemos que $\vec{w}$ tem uma representação no plano determinado pelos segmentos $AB$ e $AC$.
-  \end{enumerate}
+\subsection{Interpretação Geométrica}
+
+\subsubsection{Combinação Linear e Vetores Paralelos}
+
+Se $\vec{u}$ é combinação linear não nula de $\vec{v}$ apenas, então $\vec{u}$ é paralelo a $\vec{v}$. De fato, se
+\begin{equation}
+  \vec{u} = \alpha\vec{v},
+\end{equation}
+com $\alpha\neq 0$, então, por definição da multiplicação por escalar, $\vec{u}$ tem a mesma direção de $\vec{v}$. Em outras palavras, temos a seguinte proposição. Consulte a Figura~\ref{cap_base_sec_comblin:fig:comb2vet}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=2.5in]{./cap_base/dados/fig_comb2vet/fig.jpg}
+  \caption{Combinação linear de vetores paralelos.}
+  \label{cap_base_sec_comblin:fig:comb2vet}
+\end{figure}
+
+\begin{proposicao}\normalfont{(\hl{Combinação Linear entre Vetores Paralelos}.)}\label{cap_base_sec_comblin:prop:comb2vet}
+  Se $\vec{u},\vec{v}$ são vetores não nulos tais que
+  \begin{equation}
+    \alpha\vec{u} + \beta\vec{v} = \vec{0},
+  \end{equation}
+  com escalares $\alpha,\beta$ não simultaneamente nulos, então $\vec{u}\parallel \vec{v}$.
+\end{proposicao}
+\begin{demonstracao}
+  Sem perda de generalidade, vamos assumir que $\alpha\neq 0$. Logo, temos que
+  \begin{equation}
+    \vec{u} = -\frac{\beta}{\alpha}\vec{v},
+  \end{equation}
+  o que mostra que $\vec{u}$ têm a mesma direção de $\vec{v}$.
+\end{demonstracao}
+
+\begin{obs}\normalfont{(\hl{Vetores Paralelos Têm Combinação Não Trivial}.)}
+  A recíproca da Proposição~\ref{cap_base_sec_comblin:prop:comb2vet} é válida, i.e., se $\vec{u}\parallel\vec{v}$ e não nulos, então existem escalares $\alpha,\beta$ não simultaneamente nulos tais que
+  \begin{equation}
+    \alpha\vec{u} + \beta\vec{v} = \vec{0}.
+  \end{equation}
+  Consulte o exercício \exerref{cap_base_sec_comblin:exer:parallel_comblin_ntrivial}.
 \end{obs}
+
+\subsubsection{Combinação Linear e Vetores Coplanares}
+
+Se $\vec{w}$ é combinação linear não nula de $\vec{u}$ e $\vec{v}$, então $\vec{w}$ é coplanar a estes vetores. De fato, temos
+\begin{equation}
+  \vec{w} = \alpha\vec{u} + \beta\vec{w},
+\end{equation}
+com escalares $\alpha,\beta$. Se pelo menos um dos $\vec{u}$, $\vec{v}$, $\alpha$ ou $\beta$ é nulo, então, é certo, que $\vec{u}$, $\vec{v}$ e $\vec{w}$ são coplanares. Caso sejam todos não nulos, $\alpha\vec{u}=\overrightarrow{OA}$ e $\beta\vec{v}=\overrightarrow{OC}$ determinam um plano $\gamma$ e um paralelogramo $OABC\in\gamma$. Segue que
+\begin{align}
+  \vec{w} &= \alpha\vec{u} + \beta\vec{w}\\
+          &= \overrightarrow{OA} + \overrightarrow{OC}\\
+          &= \overrightarrow{OB}\in\gamma. 
+\end{align}
+Concluímos que $\vec{u}$, $\vec{v}$ e $\vec{w}$ são coplanares.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=2.5in]{./cap_base/dados/fig_comb3vet/fig.jpg}
+  \caption{Combinação linear de um vetor.}
+  \label{cap_base_sec_comblin:fig:comb3vet}
+\end{figure}
+
+\begin{proposicao}\normalfont{(\hl{Combinação Linear entre Vetores Coplanares}.)}\label{cap_base_sec_comblin:prop:comb3vet}
+  Vetores $\vec{u}$, $\vec{v}$ e $\vec{w}$ não nulos têm combinação linear não trivial se, e somente se, são coplanares.
+\end{proposicao}
+\begin{demonstracao}
+  Consulte o \exerref{cap_base_sec_comblin:exer:comb3vet}.
+\end{demonstracao}
 
 \subsection*{Exercícios resolvidos}
 
 \begin{exeresol}\label{exeresol:comblin_geo}
-  Com base na figura abaixo, escreva o vetor $\vec{u}$ como combinação linear dos vetores $\vec{i}=\overrightarrow{OA}$ e $\vec{j}=\overrightarrow{OB}$.
+  Com base na Figura~\ref{cap_base_sec_comblin:fig:comblin_exeresol_geo}, escreva o vetor $\vec{u}$ como combinação linear dos vetores $\vec{i}$ e $\vec{j}$.
 
   \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{cap_base/dados/fig_comblin_exeresol_geo/fig_comblin_exeresol_geo}
-    \caption{ER \ref{exeresol:comblin_geo}.}
-    \label{fig:comblin_exeresol_geo}
+    \includegraphics[width=2.25in]{cap_base/dados/fig_comblin_exeresol_geo/fig.jpg}
+    \caption{Vetor $\vec{u}$ como combinação linear de $\vec{i}$ e $\vec{j}$.}
+    \label{cap_base_sec_comblin:fig:comblin_exeresol_geo}
   \end{figure}
+
 \end{exeresol}
 \begin{resol}
   Para escrevermos o vetor $\vec{u}$ como combinação linear dos vetores $\vec{i}$ e $\vec{j}$, devemos determinar números $c_1$ e $c_2$ tais que
   \begin{equation}
     \vec{u} = c_1\vec{i} + c_2\vec{j}.
   \end{equation}
-  Com base na Figura \ref{fig:comblin_exeresol_geo}, podemos tomar $c_1 = 3$ e $c_2=2$, i.e. temos
+  Com base na Figura~\ref{cap_base_sec_comblin:fig:comblin_exeresol_geo}, podemos tomar $c_1 = 3$ e $c_2=2$, i.e. temos
   \begin{equation}
     \vec{u} = 3\vec{i} + 2\vec{j}.
   \end{equation}
@@ -68,70 +116,72 @@ uma \emph{combinação linear} de $\vec{u}_1$, $\vec{u}_2$, $\dotsc$, $\vec{u}_n
   Sabendo que $\vec{u}=2\vec{v}$, forneça três maneiras de escrever o vetor nulo $\vec{0}$ como combinação linear dos vetores $\vec{u}$ e $\vec{v}$.
 \end{exeresol}
 \begin{resol}
-  \begin{enumerate}[a)]
-  \item
-    \begin{gather}
-      \vec{u}=2\vec{v}\\
-      \vec{0}=2\vec{v}-\vec{u}
-    \end{gather}
-  \item
-    \begin{gather}
-      \vec{u}=2\vec{v}\\
-      \vec{u}-2\vec{v}=\vec{0}\\
-      \vec{0}=\vec{u}-2\vec{v}
-    \end{gather}
-  \item
-    \begin{gather}
-      \vec{u}=2\vec{v}\\
-      \frac{1}{2}\vec{u}=\vec{v}\\
-      \vec{0}=\vec{v}-\frac{1}{2}\vec{u}
-    \end{gather}
-  \end{enumerate}
-\end{resol}
+    Dado que
+    \begin{equation}
+      \vec{u} = 2\vec{v}
+    \end{equation}
+    podemos escrever $\vec{0}$ como combinação linear de $\vec{u}$ e $\vec{v}$ das seguintes formas:
+    \begin{enumerate}[a)]
+      \item subtraindo $\vec{u}$.
+      \begin{align}
+        \vec{u} - \vec{u} &= 2\vec{v} - \vec{u}\\
+        \vec{0} &= 2\vec{v}-\vec{u}
+      \end{align}
+      \item subtraindo $2\vec{v}$.
+      \begin{align}
+        \vec{u} - 2\vec{v} &= 2\vec{v} - 2\vec{v}\\
+        \vec{u} - 2\vec{v} &= \vec{0}\\
+        \vec{0} & = \vec{u} - 2\vec{v}
+      \end{align}
+      \item multiplicando por $1/2$ e subtraindo $-(1/2)\vec{u}$.
+      \begin{align}
+        \frac{1}{2}\vec{u} &= \frac{1}{2}\cdot 2\vec{v}\\
+        \frac{1}{2}\vec{u} - \frac{1}{2}\vec{u} &= \vec{v} - \frac{1}{2}\vec{u}\\
+        \vec{0} &= \vec{v}-\frac{1}{2}\vec{u}
+      \end{align}
+    \end{enumerate}
+  \end{resol}
 
 \subsection*{Exercícios}
 
-\begin{exer}\label{exer:comblin_geo1}
-  Com base na figura abaixo, escreva $\vec{u}$ como combinação linear dos vetores $\vec{i}=\overrightarrow{OA}$ e $\vec{j}=\overrightarrow{OB}$.
+\begin{exer}\label{cap_base_sec_comblin:exer:comblin_exer_geo}
+  Com base na figura abaixo, escreva cada um dos seguintes vetores como combinação linear de $\vec{i}$ e $\vec{j}$.
 
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.4\textwidth]{cap_base/dados/fig_comblin_exer_geo/fig_comblin_exer_geo1}    
-    \caption{E \ref{exer:comblin_geo1}.}
-    \label{fig:comblin_geo1}
-  \end{figure}
+  \begin{center}
+    \includegraphics[width=2.25in]{cap_base/dados/fig_comblin_exer_geo/fig.jpg}
+  \end{center}
+
+  \begin{enumerate}[a)]
+    \item $\vec{u}$.
+    \item $\vec{v}$.
+    \item $\vec{w}$.
+    \item $\vec{x}$.
+  \end{enumerate}
+
 \end{exer}
 \begin{resp}
-  $\vec{u}=\vec{i}+2\vec{j}$
+  a) $\vec{u} = 2\vec{i} + 3\vec{j}$. b) $\vec{v} = -2\vec{i} + 2\vec{j}$. c) $\vec{w} = -2\vec{i} - \vec{j}$. d) $\vec{x} = 3\vec{i} - \vec{j}$.
 \end{resp}
 
 \begin{exer}\label{exer:comblin_geo2}
-  Com base na figura abaixo, escreva $\vec{u}=$ como combinação linear dos vetores $\vec{i}=\overrightarrow{OA}$ e $\vec{j}=\overrightarrow{OB}$.
+  Com base na figura abaixo, escreva os seguintes vetores como combinação linear de $\vec{x}$ e $\vec{y}$.
 
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{cap_base/dados/fig_comblin_exer_geo/fig_comblin_exer_geo2}    
-    \caption{E \ref{exer:comblin_geo2}.}
-    \label{fig:comblin_geo2}
-  \end{figure}
+  \begin{center}
+    \includegraphics[width=2.25in]{cap_base/dados/fig_comblin_exer_geo2/fig.jpg}
+  \end{center}
+
+  \begin{enumerate}[a)]
+    \item $\vec{u}$.
+    \item $\vec{v}$.
+    \item $\vec{w}$.
+    \item $\vec{z}$.
+  \end{enumerate}
+
 \end{exer}
 \begin{resp}
-  $\vec{u}=-3\vec{i}+\vec{j}$
+  a) $\vec{u} = -2\vec{x} + \frac{3}{2}\vec{y}$. b) $\vec{v} = 2\vec{x} + \vec{y}$. c) $\vec{w} = 2\vec{x} - \frac{1}{2}\vec{y}$. d) $\vec{z} = -3\vec{x} - \frac{1}{2}\vec{y}$.
 \end{resp}
 
-\begin{exer}\label{exer:comblin_geo3}
-  Com base na figura abaixo, escreva $\vec{u}=$ como combinação linear dos vetores $\vec{i}=\overrightarrow{OA}$ e $\vec{j}=\overrightarrow{OB}$.
-
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.4\textwidth]{cap_base/dados/fig_comblin_exer_geo/fig_comblin_exer_geo3}    
-    \caption{E \ref{exer:comblin_geo3}.}
-    \label{fig:comblin_geo3}
-  \end{figure}
-\end{exer}
-\begin{resp}
-  $\vec{u}=\vec{i}-\vec{j}$
-\end{resp}
 
 \begin{exer}
   Sabendo que $\vec{u}=3\vec{w}+\vec{v}$, escreva $\vec{w}$ como combinação linear de $\vec{u}$ e $\vec{v}$.
@@ -155,7 +205,7 @@ uma \emph{combinação linear} de $\vec{u}_1$, $\vec{u}_2$, $\dotsc$, $\vec{u}_n
 \end{resp}
 
 \begin{exer}
-  Sejam $\vec{u}$ e $\vec{v}$ coplanares com direções diferentes e $\vec{w}$ um vetor não coplanar a $\vec{u}$ e $\vec{v}$, todos não nulos. É possível gerar $\vec{w}$ com $\vec{u}$ e $\vec{v}$?
+  Sejam $\vec{u}$ e $\vec{v}$ vetores não paralelos entre si e $\vec{w}$ um vetor não coplanar a $\vec{u}$ e $\vec{v}$, todos não nulos. É possível gerar $\vec{w}$ com $\vec{u}$ e $\vec{v}$?
 \end{exer}
 \begin{resp}
   Não.
@@ -168,73 +218,136 @@ uma \emph{combinação linear} de $\vec{u}_1$, $\vec{u}_2$, $\dotsc$, $\vec{u}_n
   Sim.
 \end{resp}
 
+\begin{exer}\label{cap_base_sec_comblin:exer:parallel_comblin_ntrivial}
+  Mostre que se $\vec{u},\vec{v}$ são vetores não nulos e paralelos entre si, então existem escalares $\alpha,\beta$ não simultaneamente nulos tais que
+  \begin{equation}
+    \alpha\vec{u} + \beta\vec{v} = \vec{0}.
+  \end{equation}
+\end{exer}
+\begin{resp}
+  Sem perda de generalidade, existe $\gamma\neq 0$ tal que $\vec{u} = \gamma\vec{v}$. Logo, escolhendo $\alpha = 1$ e $\beta = -\gamma$, temos que $\alpha\vec{u} + \beta\vec{v} = \vec{0}$.
+\end{resp}
+
+\begin{exer}\label{cap_base_sec_comblin:exer:comb3vet}
+  Faça a demonstração da Proposição~\ref{cap_base_sec_comblin:prop:comb3vet}.
+\end{exer}
+\begin{resp}
+  Implicação. Sem perda de generalidade, assumimos que $\gamma \neq 0$, logo
+  \begin{equation}
+    \vec{w} = -\frac{\alpha}{\gamma}\vec{u} - \frac{\beta}{\gamma}\vec{v},  
+  \end{equation}
+  o que mostra que $\vec{w}$ é coplanar aos vetores $\vec{u}$ e $\vec{v}$.
+
+  Recíproca. Se dois dos vetores forem paralelos entre si, o resultado segue da Proposição~\ref{cap_base_sec_comblin:prop:comb2vet}. Caso contrário, sejam $\vec{u} = \overrightarrow{OA}$ e $r$ a reta paralela a $\vec{v}$ que passa por $A$. Seja, então, $P$ a interseção entre $r$ e a reta suporte de $\vec{w}$ que passa por $O$. Logo, existem $\gamma,\beta$ tal que $\gamma\vec{w} = \overrightarrow{OP}$ e $\beta\vec{v} = \overrightarrow{AP}$. Segue que $\vec{u}+\beta\vec{v} = \gamma\vec{w}$.
+\end{resp}
+
+\ifisbook
+\subsubsection{Respostas}
+\shipoutAnswer
+\fi
+
+%%% Seção: Dependência Linear %%%
+
 \section{Dependência linear}\label{cap_base_sec_deplinear}
 \badgeRevisar
 
-Dois ou mais vetores dados são \emph{linearmente dependentes} (l.d.) quando um deles for combinação linear dos demais.
+\hl{Dois ou mais vetores dados são \emph{linearmente dependentes} (l.d.) quando um deles for combinação linear dos demais}. Mais precisamente, dado $\{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_n\}$ é um \emph{conjunto de vetores l.d.} quando
+\begin{equation}
+  c_1 \vec{u}_1 + c_2\vec{u}_2 + \cdots + c_n\vec{u}_n = \vec{0},
+\end{equation}
+para escalares $c_1, c_2, \ldots, c_n$ \emph{não todos nulos}.
 
-\begin{ex}\label{ex:deplinear}
-  No exemplo anterior (Exemplo \ref{ex:comblinear}), temos:
+\begin{ex}
+  Estudamos cada caso:
   \begin{enumerate}[a)]
-  \item $\vec{u_1}$ é linearmente dependente (l.d.) dos vetores $\vec{v}$ e $\vec{z}$.
-  \item $\vec{u_2}$ é l.d. a $\vec{u}$ e $\vec{z}$.
-  \item $\vec{u_3}$ depende linearmente dos vetores $\vec{u}$, $\vec{v}$ e $\vec{z}$.
-  \item Os vetores $\vec{u_4}$ e $\vec{z}$ são linearmente dependentes.
+    \item Sejam $\vec{u}_1$ e $\vec{u}_2 = -2\vec{u}_1$. Temos que $\vec{u}_1$ e $\vec{u}_2$ são linearmente dependentes, pois
+    \begin{equation}
+    2\vec{u}_1 + 1\vec{u_2} = \vec{0}.
+    \end{equation}
+    \item Sejam $\vec{u}$, $\vec{v}$ e $\vec{w} = \vec{u} - \vec{v}$. Temos que $\{\vec{u}, \vec{v}, \vec{w}\}$ é um conjunto l.d., pois
+    \begin{equation}
+      \vec{u} - \vec{v} - \vec{w} = \vec{0}.
+    \end{equation}
   \end{enumerate}
 \end{ex}
 
-Dois ou mais vetores dados são \emph{linearmente independentes} (l.i.) quando eles não são linearmente dependentes.
-
-\subsection{Observações}\label{cap_base_sec_deplin_subsec_obs}
-
-\subsubsection{Dois vetores}
-
-Dois vetores quaisquer $\vec{u}\neq\vec{0}$ e $\vec{v}\neq\vec{0}$ são l.d. se, e somente se, qualquer uma das seguinte condições é satisfeita:
-\begin{enumerate}[a)]
-\item um deles é combinação linear do outro, i.e.
+\begin{obs}\normalfont{(\hl{Vetor Nulo}.)}
+  Todo conjunto de vetores que contenha o vetor nulo é um conjunto l.d.. De fato, para quaisquer $\vec{u}_1$, $\vec{u}_2$, \ldots, $\vec{u}_n$, tem-se que
   \begin{equation}
-    \vec{u} = \alpha\vec{v}\quad\text{ou}\quad\vec{v}=\beta\vec{u};
+    \vec{0} + 0\vec{u}_1 + 0\vec{u}_2 + \cdots + 0\vec{u}_n = \vec{0}.
   \end{equation}
-\item $\vec{u}$ e $\vec{v}$ têm a mesma direção;
-\item $\vec{u}$ e $\vec{v}$ são paralelos.
-\end{enumerate}
-De fato, a afirmação a) é a definição de dependência linear. A b) é consequência imediata da a), bem como a c) é equivalente a b). Por fim, se $\vec{u}$ e $\vec{v}$ são vetores paralelos, então um é múltiplo por escalar do outro. Ou seja, c) implica a).
-
-\begin{obs}
-  O vetor nulo $\vec{0}$ é l.d. a qualquer vetor $\vec{u}$. De fato, temos
-  \begin{equation}
-    \vec{0} = 0\cdot\vec{u},
-  \end{equation}
-  i.e. o vetor nulo é combinação linear do vetor $\vec{u}$.
 \end{obs}
 
-\begin{obs}
-  Dois vetores não nulos $\vec{u}$ e $\vec{v}$ são l.i. se, e somente se,
-  \begin{equation}
-    \alpha\vec{u} + \beta\vec{v} = \vec{0} \Rightarrow \alpha=\beta=0.
-  \end{equation}
-  De fato, se $\alpha\neq 0$, então podemos escrever
-  \begin{equation}
-    \vec{u} = -\frac{\beta}{\alpha}\vec{v},
-  \end{equation}
-  i.e. o vetor $\vec{u}$ é combinação linear do vetor $\vec{v}$ e, portanto, estes vetores são l.d.. Isto contradiz a hipótese de eles serem l.i.. Analogamente, se $\beta \neq 0$, então podemos escrever
-  \begin{equation}
-    \vec{v} = -\frac{\alpha}{\beta}\vec{u}
-  \end{equation}
-  e, então, teríamos $\vec{u}$ e $\vec{v}$ l.d..
-\end{obs}
+\hl{Dois ou mais vetores dados são \emph{linearmente independentes} (l.i.) quando eles não são linearmente dependentes}.
 
+\subsection{Dois Vetores no Espaço}
 
-\subsubsection{Três vetores}
+Dois vetores de mesma direção são linearmente dependentes (l.d.). 
+
+\begin{proposicao}
+  Dois vetores não nulos $\vec{u}$ e $\vec{v}$ são l.d. se, e somente se, qualquer uma das seguinte condições é satisfeita:
+  \begin{enumerate}[a)]
+  \item um deles é combinação linear do outro, i.e.
+    \begin{equation}
+      \vec{u} = \alpha\vec{v}
+    \end{equation}
+    ou
+    \begin{equation}
+      \vec{v}=\beta\vec{u}.
+    \end{equation}
+  \item eles têm a mesma direção;
+  \item eles são paralelos.
+  \end{enumerate}
+\end{proposicao}
+\begin{demonstracao}
+  De fato, a afirmação a) é a definição de dependência linear. A afirmação b) é consequência imediata da a), bem como a c) é equivalente a b). Por fim, se $\vec{u}$ e $\vec{v}$ são vetores paralelos, então um é múltiplo por escalar do outro. Ou seja, c) implica a).  
+\end{demonstracao}
+
+Esta proposição também mostra que \hl{dois vetores não nulos são linearmente independentes (l.i.) se, e somente se, eles têm direções diferentes}.
+
+\begin{ex}
+  Considere dois vetores não nulos $\vec{u}$ e $\vec{v}$ de mesma direção. Então, no caso de terem sentidos opostos, segue que
+  \begin{equation}
+    \frac{1}{\|\vec{u}\|}\vec{u} + \frac{1}{\|\vec{v}\|}\vec{v} = \vec{0}.
+  \end{equation}
+  noutro caso, temos que
+  \begin{equation}
+    \frac{1}{\|\vec{u}\|}\vec{u} + \frac{-1}{\|\vec{v}\|}\vec{v} = \vec{0}.
+  \end{equation}
+  Consulte a Figura~\ref{cap_base_sec_deplinear}.
+
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=2.75in]{./cap_base/dados/fig_dois_vetores_dependentes/fig.jpg}
+    \caption{Dois vetores linearmente dependentes.}
+  \end{figure}
+\end{ex}
+
+%%% Estou aqui %%%
+
+\subsection{Três Vetores no Espaço}
 
 Três vetores quaisquer $\vec{u}$, $\vec{v}$ e $\vec{w}$ são l.d. quando um deles pode ser escrito como combinação linear dos outros dois. Sem perda de generalidade, isto significa que existem constantes $\alpha$ e $\beta$ tais que
 \begin{equation}
   \vec{u} = \alpha\vec{v} + \beta\vec{w}.
 \end{equation}
+ou, equivalentemente,
+\begin{equation}
+  \vec{u} + (-\alpha)\vec{v} + (-\beta)\vec{w} = \vec{0}.
+\end{equation}
 
 \emph{Afirmamos que se $\vec{u}$, $\vec{v}$ e $\vec{w}$ são l.d., então $\vec{u}$, $\vec{v}$ e $\vec{w}$ são coplanares.} Do fato de que dois vetores quaisquer são sempre coplanares, temos que $\vec{u}$, $\vec{v}$ e $\vec{w}$ são coplanares caso qualquer um deles seja o vetor nulo. Suponhamos, agora, que $\vec{u}$, $\vec{v}$ e $\vec{w}$ são não nulos e seja $\pi$ o plano determinado pelos vetores $\vec{v}$ e $\vec{w}$. Se $\alpha = 0$, então $\vec{u} = \beta\vec{w}$ e teríamos uma representação de $\vec{u}$ no plano $\pi$. Analogamente, se $\beta=0$, então $\vec{u} = \alpha\vec{v}$ e teríamos uma representação de $\vec{u}$ no plano $\pi$. Por fim, observamos que se $\alpha,\beta\neq 0$, então $\alpha\vec{v}$ tem a mesma direção de $\vec{v}$ e $\beta\vec{w}$ tem a mesma direção de $\vec{w}$. Isto é, $\alpha\vec{v}$ e $\beta\vec{w}$ admitem representações no plano $\pi$. Sejam $\overrightarrow{AB}$ e $\overrightarrow{BC}$ representações dos vetores $\alpha\vec{v}$ e $\beta\vec{w}$, respectivamente. Os pontos $A$, $B$ e $C$ pertencem a $\pi$, assim como o segmento $AC$. Como $\overrightarrow{AC} = \vec{u} = \alpha\vec{v} + \beta\vec{w}$, concluímos que $\vec{u}$, $\vec{v}$ e $\vec{w}$ são coplanares.
 
-Reciprocamente, \emph{se $\vec{u}$, $\vec{v}$ e $\vec{w}$ são coplanares, então $\vec{u}$, $\vec{v}$ e $\vec{w}$ são l.d..} De fato, se um deles for nulo, por exemplo, $\vec{u}=\vec{0}$, então $\vec{u}$ pode ser escrito como a seguinte combinação linear dos vetores $\vec{v}$ e $\vec{w}$
+Reciprocamente, \emph{se $\vec{u}$, $\vec{v}$ e $\vec{w}$ são coplanares, então $\vec{u}$, $\vec{v}$ e $\vec{w}$ são l.d..} Consulte a Figura~\ref{cap_base_sec_deplinear:fig:vetores_coplanares_ld}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=2.75in]{./cap_base/dados/fig_vetores_coplanares_ld/fig.jpg}
+  \caption{Três vetores coplanares são l.d..}
+  \label{cap_base_sec_deplinear:fig:vetores_coplanares_ld}
+\end{figure}
+
+De fato, se um deles for nulo, por exemplo, $\vec{u}=\vec{0}$, então $\vec{u}$ pode ser escrito como a seguinte combinação linear dos vetores $\vec{v}$ e $\vec{w}$
 \begin{equation}
   \vec{u} = 0\vec{v} + 0\vec{w}.
 \end{equation}
@@ -244,32 +357,20 @@ Neste caso, $\vec{u}$, $\vec{v}$ e $\vec{w}$ são l.d.. Também, se dois dos vet
 \end{equation}
 E, então, $\vec{u}$, $\vec{v}$ e $\vec{w}$ são l.d.. Agora, suponhamos que $\vec{u}$, $\vec{v}$ e $\vec{w}$ são não nulos e dois a dois concorrentes (i.e. todos com direções distintas). Sejam, então $\overrightarrow{PA}=\vec{u}$, $\overrightarrow{PB}=\vec{v}$ e $\overrightarrow{PC}=\vec{w}$ representações sobre um plano $\pi$. Sejam $r$ e $s$ as retas determinadas por $PA$ e $PC$, respectivamente. Seja, então, $D$ o ponto de interseção da reta $s$ com a reta paralela a $r$ que passa pelo ponto $B$. Seja, também, $E$ o ponto de interseção da reta $r$ com a reta paralela a $s$ que passa pelo ponto $B$. Sejam, então, $\alpha$ e $\beta$ tais que $\alpha\vec{u}=\overrightarrow{PE}$ e $\beta\vec{w}=\overrightarrow{PD}$. Como $\vec{v} = \overrightarrow{PB} = \overrightarrow{PE} + \overrightarrow{PD} = \alpha\vec{u}+\beta\vec{w}$, temos que $\vec{v}$ é combinação linear de $\vec{u}$ e $\vec{w}$, i.e. $\vec{u}$, $\vec{v}$ e $\vec{w}$ são l.d..
 
-\begin{obs}\label{obs:cbsc_li}
-  Três vetores dados $\vec{u}$, $\vec{v}$ e $\vec{w}$ são l.i. se, e somente se, 
-  \begin{equation}
-    \alpha\vec{u} + \beta\vec{v} + \gamma\vec{w} = 0 \Rightarrow \alpha=\beta=\gamma = 0.
-  \end{equation}
-  De fato, sem perda de generalidade, se $\alpha\neq 0$, podemos escrever
-  \begin{equation}
-    \vec{u} = -\frac{\beta}{\alpha}\vec{v} - \frac{\gamma}{\alpha}\vec{w},
-  \end{equation}
-  e teríamos $\vec{u}$, $\vec{v}$ e $\vec{w}$ vetores l.d..
-\end{obs}
+\subsection{Quatro ou Mais Vetores no Espaço}
 
-\subsubsection{Quatro ou mais vetores}
-
-{\bf Quatro ou mais vetores são sempre l.d..} De fato, sejam dados quatro vetores $\vec{a}$, $\vec{b}$, $\vec{c}$ e $\vec{d}$. Se dois ou três destes forem l.d.entre si, então, por definição, os quatro são l.d.. Assim sendo, suponhamos que três dos vetores sejam l.i. e provaremos que, então, o outro vetor é combinação linear desses três.
+{\bf Quatro ou mais vetores são sempre l.d.\footnote{No espaço euclidiano tridimensional.}.} De fato, sejam dados quatro vetores $\vec{a}$, $\vec{b}$, $\vec{c}$ e $\vec{d}$. Se dois ou três destes forem l.d.entre si, então, por definição, os quatro são l.d.. Assim sendo, suponhamos que três dos vetores sejam l.i. e provaremos que, então, o outro vetor é combinação linear desses três.
 
 Sem perda de generalidade, suponhamos que $\vec{a}$, $\vec{b}$ e $\vec{c}$ são l.i.. Logo, eles não são coplanares. Seja, ainda, $\pi$ o plano determinado pelos vetores $\vec{a}$, $\vec{b}$ e as representações $\vec{a}=\overrightarrow{PA}$, $\vec{b}=\overrightarrow{PB}$, $\vec{c}=\overrightarrow{PC}$ e $\vec{d}=\overrightarrow{PD}$.
 
-\begin{figure}[H]
+\begin{figure}[h]
   \centering
-  \includegraphics[width=0.7\textwidth]{./cap_base/dados/fig_4vec_ld/fig_4vec_ld}
+  \includegraphics[width=0.7\textwidth]{./cap_base/dados/fig_quatro_vetores_ld/fig}
   \caption{Quatro vetores são l.d..}
-  \label{fig:4vec_ld}
+  \label{cap_base_sec_deplinear:fig:quatro_vetores_ld}
 \end{figure}
 
-Consideremos a reta $r$ paralela a $\overrightarrow{PC}$ que passa pelo ponto $D$. Então, seja $E$ o ponto de interseção de $r$ com o plano $\pi$. Vejamos a Figura \ref{fig:4vec_ld}. Observamos que o vetor $\overrightarrow{PE}$ é coplanar aos vetores $\overrightarrow{PA}$ e $\overrightarrow{PB}$ e, portanto, exitem números reais $\alpha$ e $\beta$ tal que
+Tomamos a reta $r$ paralela a $\overrightarrow{PC}$ que passa pelo ponto $D$. Então, seja $E$ o ponto de interseção de $r$ com o plano $\pi$. Consultamos a Figura~\ref{cap_base_sec_deplinear:fig:quatro_vetores_ld}. Observamos que o vetor $\overrightarrow{PE}$ é coplanar aos vetores $\overrightarrow{PA}$ e $\overrightarrow{PB}$ e, portanto, exitem números reais $\alpha$ e $\beta$ tal que
 \begin{equation}
   \overrightarrow{PE} = \alpha\overrightarrow{PA} + \beta\overrightarrow{PB}.
 \end{equation}

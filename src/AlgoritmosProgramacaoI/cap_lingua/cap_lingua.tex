@@ -413,17 +413,24 @@ else:
 \begin{exer}
   Complete as lacunas.
   \begin{enumerate}[a)]
+    % a)
     \item \underline{\phantom{Fluxograma}} é uma representação gráfica de um algoritmo.
+    % b)
     \item Em um fluxograma, \underline{\phantom{terminal}} indicada o início ou final de um algoritmo.
+    % c)
     \item A \underline{\phantom{linha de fluxo}} direciona para o próximo bloco de \underline{\phantom{execução}}.
+    % d)
     \item A leitura de dados é indicada por um bloco de \underline{\phantom{entrada}} em um fluxograma.
+    % e)
     \item Um bloco de \underline{\phantom{processo}} indica uma ação a ser executada.
+    % f)
     \item Uma ramificação do algoritmo é indicada no seu fluxograma por um bloco de \underline{\phantom{decisão}}.
+    % g
     \item Em um fluxograma, o bloco de \underline{\phantom{saída}} indica a impressão de um dado.
   \end{enumerate} 
 \end{exer}
 \begin{resp}
-  a) Fluxograma. b) terminal. c) execução. d) entrada. e) processo. f) decisão. g) saída.
+  a) Fluxograma. b) terminal. c) linha de fluxo; execução. d) entrada. e) processo. f) decisão. g) saída.
 \end{resp}
 
 \begin{exer}
@@ -1101,20 +1108,23 @@ A \hlemph{ordem de precedência das operações} deve ser observada em {\python}
   O método {\python} {\PYTHONsysDOTgetsizeof} retorna o tamanho de um objeto medido em \textit{bytes} \hl{($1~\textit{byte} = 8~\textit{bits}$)}.
 
 \begin{lstlisting}
->>> import sys
->>> sys.getsizeof(0)
-24
->>> sys.getsizeof(1)
-28
->>> sys.getsizeof(100)
-28
->>> sys.getsizeof(10**9)
-28
->>> sys.getsizeof(10**10)
-32
->>> sys.getsizeof(10**100) #googol
-72
+import sys
+print('0:',sys.getsizeof(0),'B')
+print('1:',sys.getsizeof(1),'B')
+print('100:',sys.getsizeof(100),'B')
+print('10**9:',sys.getsizeof(10**9),'B'))
+print('10**10:',sys.getsizeof(10**10),'B'))
+print('10**100:',sys.getsizeof(10**100),'B'))
 \end{lstlisting}
+
+\begin{verbatim}
+0: 24 B
+1: 28 B
+100: 28 B
+10**9: 28 B
+10**10: 32 B
+10**100: 72 B
+\end{verbatim}
 
   O número \href{https://en.wikipedia.org/wiki/Googol}{googol} $10^{100}$ é um número grande\footnote{Por exemplo, o número total de partículas elementares em todo o universo observável é estimado em $10^{80}$. Fonte: \href{https://en.wikipedia.org/wiki/Eddington_number}{Wikipedia: Eddington number}.}, mas $72$~\textit{bytes} não necessariamente. Um computador com $4$~Gbytes\footnote{$1~\textit{Gbytes} = 1024~\textit{Mbytes}$, $1~\textit{Mbytes} = 1024~\textit{Kbytes}$, $1~\textit{Kbytes} = 1024~\textit{bytes}$.} livres de memória, poderia armazenar um número inteiro que requer um registro de até $4,3\times 10^9~\textit{bytes}$.
 \end{ex}
@@ -1123,9 +1133,12 @@ A \hlemph{ordem de precedência das operações} deve ser observada em {\python}
   O método {\python} {\PYTHONtype} retorna o tipo de objeto alocado. Números inteiros são objetos da classe {\PYTHONint}.
 
 \begin{lstlisting}
->>> type(10)
-<class 'int'>
+type(10)
 \end{lstlisting}
+
+\begin{verbatim}
+<class 'int'>
+\end{verbatim}
 
 \end{obs}
 
@@ -1138,20 +1151,23 @@ No {\python}, \hl{números decimais são alocados} pelo padrão \href{https://en
 onde $m\in [1,2)$ é chamada de mantissa e $c\in [0, 2047]$ é um número inteiro chamado de característica do ponto flutuante. A mantissa usa $52~\textit{bits}$, a característica $11~\text{bits}$ e $1~\textit{bit}$ é usado para o sinal do número.
 
 \begin{lstlisting}
->>> import sys
->>> sys.float_info
-sys.float_info(max=1.7976931348623157e+308, 
-               max_exp=1024, 
-               max_10_exp=308, 
-               min=2.2250738585072014e-308, 
-               min_exp=-1021, 
-               min_10_exp=-307, 
-               dig=15, 
-               mant_dig=53, 
-               epsilon=2.220446049250313e-16, 
-               radix=2, 
-               rounds=1)
+import sys
+sys.float_info
 \end{lstlisting}
+
+\begin{verbatim}
+sys.float_info(max=1.7976931348623157e+308, 
+              max_exp=1024, 
+              max_10_exp=308, 
+              min=2.2250738585072014e-308, 
+              min_exp=-1021, 
+              min_10_exp=-307, 
+              dig=15, 
+              mant_dig=53, 
+              epsilon=2.220446049250313e-16, 
+              radix=2, 
+              rounds=1)
+\end{verbatim}
 
 Vamos denotar \texttt{fl(x)} o número em ponto flutuante mais próximo do número decimal \texttt{x} dado. Quando digitamos
 
@@ -1571,11 +1587,20 @@ Em {\python}, os \hl{\emph{valores lógicos} são o {\PYTHONTrue} (\emph{verdade
 Normalmente, eles aparecem como resultado de expressões lógicas. Por exemplo:
 
 \begin{lstlisting}
->>> 2/3 < 3/4
-True
->>> 7/5 > 13/9
-False
+2/3 < 3/4
 \end{lstlisting}
+
+\begin{verbatim}
+True
+\end{verbatim}
+
+\begin{lstlisting}
+7/5 > 13/9
+\end{lstlisting}
+
+\begin{verbatim}
+  False
+\end{verbatim}
 
 \subsection{Operadores de Comparação}
 
@@ -1584,44 +1609,62 @@ False
 \item \lstinline+<+ \hlemph{menor que}
 
 \begin{lstlisting}[xrightmargin=2.5em]
->>> 2 < 3
-True
+2 < 3
 \end{lstlisting}
+
+\begin{verbatim}
+True
+\end{verbatim}
 
 \item \lstinline+<=+ \hlemph{menor ou igual que}
 
 \begin{lstlisting}[xrightmargin=2.5em]
->>> 4 <= 2**2
-True
+4 <= 2**2
 \end{lstlisting}
+
+\begin{verbatim}
+True
+\end{verbatim}
 
 \item \lstinline+>+ \hlemph{maior que}
 
 \begin{lstlisting}[xrightmargin=2.5em]
->>> 5 > 7
-False
+5 > 7
 \end{lstlisting}
+
+\begin{verbatim}
+False
+\end{verbatim}
 
 \item \lstinline+>=+ \hlemph{maior ou igual que}
 
 \begin{lstlisting}[xrightmargin=2.5em]
->>> 2*5 >= 10
-True
+2*5 >= 10
 \end{lstlisting}
+
+\begin{verbatim}
+True
+\end{verbatim}
 
 \item \lstinline+==+ \hlemph{igual a}
 
 \begin{lstlisting}[xrightmargin=2.5em]
->>> 9**2 == 81
-True
+9**2 == 81
 \end{lstlisting}
+
+\begin{verbatim}
+True
+\end{verbatim}
 
 \item \lstinline+!=+ \hlemph{diferente de}
 
 \begin{lstlisting}[xrightmargin=2.5em]
->>> 81 != 9**2
-False
+81 != 9**2
 \end{lstlisting}
+
+\begin{verbatim}
+False
+\end{verbatim}
 
 \end{itemize}
 
@@ -1668,9 +1711,12 @@ print('O ponto está no disco?', v)
 \hl{Números decimais são arredondados para o número \PYTHONfloat (ponto flutuante) mais próximo na máquina}\footnote{Consulte a Subseção~\ref{cap_lingua_sec_numop:subsec:float} para mais informações.}. Com isso, a comparação direta entre pontos flutuantes não é recomendada, em geral. Por exemplo,
 
 \begin{lstlisting}
->>> 0.1 + 0.2 == 0.3
-False
+0.1 + 0.2 == 0.3
 \end{lstlisting}
+
+\begin{verbatim}
+False
+\end{verbatim}
 
 Inesperadamente, este resultado é esperado na aritmética de ponto flutuante! \lstinline+:)+
 
@@ -1679,9 +1725,12 @@ O que ocorre acima, é que ao menos um dos números (na verdade todos) não tem 
 O erro de arredondamento é de aproximadamente\footnote{Épsilon de máquina $\varepsilon \approx 2,22\times 10^{-16}$.} $10^{-16}$ para cada entrada. Conforme operamos sobre pontos flutuantes este erro pode crescer. Desta forma, \hl{o mais apropriado para comparar se dois pontos flutuantes são iguais (dentro do erro de arrendamento de máquina) é verificando se a distância entre eles é menor que uma precisão desejada}, por exemplo, $10^{-15}$. No caso acima, podemos usar o método {\PYTHONabs}:
 
 \begin{lstlisting}
->>> abs(x - 0.3) <= 1e-15
-True
+abs(x - 0.3) <= 1e-15
 \end{lstlisting}
+
+\begin{verbatim}
+True
+\end{verbatim}
 
 \subsection{Operadores Lógicos}
 
@@ -1690,19 +1739,22 @@ True
 \item \lstinline+and+ \hlemph{\texttt{e} lógico}
 
 \begin{lstlisting}[xrightmargin=2.5em]
->>> 3 > 4 and 3 <= 4
-False
+3 > 4 and 3 <= 4
 \end{lstlisting}
+
+\begin{verbatim}
+False
+\end{verbatim}
 
   \begin{table}[H]
     \centering
     \caption{Tabela verdade do \lstinline+and+.}
     \begin{tabular}{ll|l}
-      {\lstinline+A+} & {\lstinline+B+} & {\lstinline+A and B+}\\\hline
-      {\lstinline+True+} & {\lstinline+True+} & {\lstinline+True+}\\
-      {\lstinline+True+} & {\lstinline+False+} & {\lstinline+False+}\\
-      {\lstinline+False+} & {\lstinline+True+} & {\lstinline+False+}\\
-      {\lstinline+False+} & {\lstinline+False+} & {\lstinline+False+}\\\hline
+      {\texttt{A}} & {\texttt{B}} & {\lstinline+A and B+}\\\hline
+      {\texttt{True}} & {\texttt{True}} & {\texttt{True}}\\
+      {\texttt{True}} & {\texttt{False}} & {\texttt{False}}\\
+      {\texttt{False}} & {\texttt{True}} & {\texttt{False}}\\
+      {\texttt{False}} & {\texttt{False}} & {\texttt{False}}\\\hline
     \end{tabular}
   \end{table}
 
@@ -1713,36 +1765,42 @@ False
 \item \lstinline+or+ \hlemph{\texttt{ou} lógico}
 
 \begin{lstlisting}[xrightmargin=2.5em]
->>> 3 > 4 or 3 <= 4
-True
+3 > 4 or 3 <= 4
 \end{lstlisting}
+
+\begin{verbatim}
+True
+\end{verbatim}
 
   \begin{table}[H]
     \centering
     \caption{Tabela verdade do \lstinline+or+.}
     \begin{tabular}{ll|l}
-      {\lstinline+A+}     & {\lstinline+B+}     & {\lstinline+A or B+} \\\hline
-      {\lstinline+True+}  & {\lstinline+True+}  & {\lstinline+True+} \\
-      {\lstinline+True+}  & {\lstinline+False+} & {\lstinline+True+} \\
-      {\lstinline+False+} & {\lstinline+True+ } & {\lstinline+True+} \\
-      {\lstinline+False+} & {\lstinline+False+} & {\lstinline+False+} \\\hline
+      {\texttt{A}}     & {\texttt{B}}     & {\lstinline+A or B+} \\\hline
+      {\texttt{True}}  & {\texttt{True}}  & {\texttt{True}} \\
+      {\texttt{True}}  & {\texttt{False}} & {\texttt{True}} \\
+      {\texttt{False}} & {\texttt{True} } & {\texttt{True}} \\
+      {\texttt{False}} & {\texttt{False}} & {\texttt{False}} \\\hline
     \end{tabular}
   \end{table}
 
 \item \lstinline+not+ \hlemph{negação lógica}
 
 \begin{lstlisting}[xrightmargin=2.5em]
->>> not(3 < 2)
-True
+not(3 < 2)
 \end{lstlisting}
+
+\begin{verbatim}
+True
+\end{verbatim}
 
   \begin{table}[H]
     \centering
     \caption{Tabela verdade do \lstinline+not+.}
     \begin{tabular}{l|l}
-      {\lstinline+A+}     & {\lstinline+not A+} \\\hline
-      {\lstinline+True+}  & {\lstinline+False+} \\
-      {\lstinline+False+} & {\lstinline+True+} \\\hline
+      {\texttt{A}}     & {\lstinline+not A+} \\\hline
+      {\texttt{True}}  & {\texttt{False}} \\
+      {\texttt{False}} & {\texttt{True}} \\\hline
     \end{tabular}
   \end{table}  
 \end{itemize}
@@ -1810,28 +1868,73 @@ print('O ponto está na interseção de c1 e c2?', resp)
   Presente em algumas linguagens, {\python} não tem um operador \lstinline+xor+ (ou exclusivo). A tabela verdade do ou exclusivo é
   \begin{center}
     \begin{tabular}[H]{ll|l}
-      {\lstinline+A+}     & {\lstinline+B+}     & {\lstinline+A xor B+} \\\hline
-      {\lstinline+True+}  & {\lstinline+True+}  & {\lstinline+False+}   \\
-      {\lstinline+True+}  & {\lstinline+False+} & {\lstinline+True+}    \\
-      {\lstinline+False+} & {\lstinline+True+}  & {\lstinline+True+}    \\
-      {\lstinline+False+} & {\lstinline+False+} & {\lstinline+False+}   \\\hline    
+      {\texttt{A}}     & {\texttt{B}}     & {\lstinline+A xor B+} \\\hline
+      {\texttt{True}}  & {\texttt{True}}  & {\texttt{False}}   \\
+      {\texttt{True}}  & {\texttt{False}} & {\texttt{True}}    \\
+      {\texttt{False}} & {\texttt{True}}  & {\texttt{True}}    \\
+      {\texttt{False}} & {\texttt{False}} & {\texttt{False}}   \\\hline    
     \end{tabular}
   \end{center}
   \hl{A operação \texttt{xor} pode ser obtida através de expressões lógicas usando-se apenas os operadores \texttt{and}, \texttt{or} e \texttt{not}}. Consulte o Exercício~\ref{cap_lingua_sec_bool:exer:xor}.
 \end{obs}
 
-\ifisbook
-\newpage
-\fi
-
 \subsection{Exercícios}
+
+\begin{exer}
+  Considerando a linguagem {\python}, complete as lacunas.
+  \begin{enumerate}[a)]
+    % a)
+    \item \underline{\phantom{\texttt{True}}} é o valor lógico verdadeiro.
+    % b)
+    \item \texttt{False} é o valor lógico \underline{\phantom{falso}}.
+    % c)
+    \item O operador de igualdade é o \underline{\phantom{\texttt{==}}}.
+    % d)
+    \item \texttt{1.275 }\underline{\phantom{\texttt{!=}}}\texttt{ 1.275} retorna o valor booleano \texttt{False}.
+  \end{enumerate}
+\end{exer}
+\begin{resp}
+  a) \texttt{True}. b) falso. c) \texttt{==}. d) \texttt{!=}.
+\end{resp}
+
+\begin{exer}
+  Sem implementar, complete as lacunas.
+  \begin{enumerate}[a)]
+    % a)
+    \item \texttt{8 * 2 < 3} retorna o valor \underline{\phantom{\texttt{False}}}.
+    % b)
+    \item \texttt{2 * 8 > 9} retorna o valor \underline{\phantom{\texttt{True}}}.
+    % c)
+    \item \texttt{4 >= 3**2} retorna o valor \underline{\phantom{\texttt{False}}}.
+    % d)
+    \item \texttt{16 == 16 // 8} retorna o valor \underline{\phantom{\texttt{False}}}.
+  \end{enumerate}
+\end{exer}
+\begin{resp}
+  a) \texttt{False}.  b) \texttt{True}.  c) \texttt{False}. d) \texttt{False}.
+\end{resp}
+
+\begin{exer}
+  Complete as lacunas.
+  \begin{enumerate}[a)]
+    % a)
+    \item \texttt{True and }\underline{\phantom{\texttt{True}}} retorna o valor \texttt{True}.
+    % b)
+    \item \texttt{False or True} retorna o valor \underline{\phantom{\texttt{True}}}.
+    % c)
+    \item \texttt{not (5 > 3)} retorna o valor \underline{\phantom{\texttt{False}}}.
+  \end{enumerate}
+\end{exer}
+\begin{resp}
+  a) \texttt{True}. b) \texttt{True}. c) \texttt{False}.
+\end{resp}
 
 \begin{exer}
   Compute as seguintes expressões:
   \begin{enumerate}[a)]
-  \item $1 - 6 > -6$\\
-  \item $\frac{3}{2} < \frac{4}{3}$\\
-  \item $31,415\times 10^{-1} == 3.1415$\\
+  \item $1 - 6 > -6$
+  \item $\frac{3}{2} < \frac{4}{3}$
+  \item $31,415\times 10^{-1} == 3.1415$
   \item $\displaystyle 2,7128 \geq 2 + \frac{2}{3}$
   \item $\displaystyle \frac{3}{2} + \frac{7}{8} \leq \frac{24 + 14}{16}$
   \end{enumerate}
@@ -1901,7 +2004,7 @@ print(resp1 or resp2)
 \end{resp}
 
 \begin{exer}
-  Sejam $A$ e $B$ valores booleanos. Verifique se as seguintes expressões são verdadeiras (V) ou falsas (F):
+  Sejam $A$ e $B$ valores booleanos. Verifique se as seguintes expressões são verdadeiras (\texttt{True}) ou falsas (\texttt{False}):
   \begin{enumerate}[a)]
   \item \lstinline+A or A == A+
   \item \lstinline+A and not(A) == True+
@@ -1911,11 +2014,11 @@ print(resp1 or resp2)
   \end{enumerate}
 \end{exer}
 \begin{resp}
-  a) V; b) F; c) V; d) V; e) F
+  a) \texttt{True}. b) \texttt{False}. c) \texttt{True}. d) \texttt{True}. e) \texttt{False}.
 \end{resp}
 
 \begin{exer}\label{cap_lingua_sec_bool:exer:xor}
-  Sejam \lstinline+A+ e \lstinline+B+ valores booleanos dados. Escreva uma expressão lógica que emule a operação \lstinline+xor+ (ou exclusivo) usando apenas os operadores \lstinline+and+, \lstinline+or+ e \lstinline+not+. Dica: consulte a Observação~\ref{cap_lingua_sec_bool:obs:xor}.
+  Sejam \texttt{A} e \texttt{B} valores booleanos dados. Escreva uma expressão lógica que emule a operação \lstinline+xor+ (ou exclusivo) usando apenas os operadores \lstinline+and+, \lstinline+or+ e \lstinline+not+. Dica: consulte a Observação~\ref{cap_lingua_sec_bool:obs:xor}.
 \end{exer}
 \begin{resp}
   \lstinline+(A or B) and not(A and B)+
@@ -1928,15 +2031,24 @@ print(resp1 or resp2)
 
 \section{Sequência de Caracteres}\label{cap_lingua_sec_string}
 
-Dados em formato texto também são comumente manipulados em programação. \hl{Um texto é interpretado como uma cadeia/sequência de caracteres, chamada de \texttt{string}}. Para entrarmos com uma letra, palavra ou texto (uma \texttt{string}), precisamos usar aspas (simples \lstinline+' '+ ou duplas \lstinline+" "+). Por exemplo,
+Dados em formato texto também são comumente manipulados em programação. \hl{Um texto é interpretado como uma cadeia/\emph{sequência de caracteres}\footnote{Caractere é qualquer letra, símbolo, sinal ou dígito representado em forma escrita.}, chamada de \texttt{string}}. Para entrarmos com uma letra, palavra ou texto (uma \texttt{string}), precisamos usar aspas (simples \lstinline+' '+ ou duplas \lstinline+" "+). Por exemplo,
 
 \begin{lstlisting}
->>> s = 'Olá, mundo!'
->>> print(s)
-Olá, mundo!
->>> type(s)
-<class 'str'>
+s = 'Olá, mundo!'
+print(s)
 \end{lstlisting}
+
+\begin{verbatim}
+Olá, mundo!  
+\end{verbatim}
+
+\begin{lstlisting}
+type(s)
+\end{lstlisting}
+
+\begin{verbatim}
+<class 'str'>
+\end{verbatim}
 
 Uma \hl{\texttt{string} é um conjunto \emph{indexado} e \emph{imutável} de caracteres.} O primeiro caractere está na posição $0$, o segundo na posição $1$ e assim por diante. Por exemplo,
 \begin{equation}
@@ -1945,105 +2057,153 @@ Uma \hl{\texttt{string} é um conjunto \emph{indexado} e \emph{imutável} de car
 Observamos que o espaço também é um caractere. O tamanho da \texttt{string} (número total de caracteres) pode ser obtido com o método {\PYTHONlen}, por exemplo
 
 \begin{lstlisting}
->>> len(s)
-11
+len(s)
 \end{lstlisting}
+
+\begin{verbatim}
+11
+\end{verbatim}
 
 A referência a um caractere de uma dada \texttt{string} é feito usando-se seu identificador seguido do índice de sua posição entre colchetes. Por exemplo,
 
 \begin{lstlisting}
->>> s[6]
-'u'
+s[6]
 \end{lstlisting}
+
+\begin{verbatim}
+'u'
+\end{verbatim}
 
 Podemos, ainda, \hl{acessar fatias}\footnote{Em inglês, \textit{slice}.}\hl{ da sequência usando o operador \texttt{:}}\footnote{{\lstinline+x[start:stop:step]+}, padrão {\lstinline+start=0+}, {\lstinline+stop=len(x)+}, {\lstinline+step=1+.}}, por exemplo,
 
 \begin{lstlisting}
->>> s[:3]
-'Olá'
+s[:3]
 \end{lstlisting}
+
+\begin{verbatim}
+'Olá'
+\end{verbatim}
 
 ou seja, os caracteres da posição $0$ à posição $2$ (um antes do índice $3$). Também podemos tomar uma fatia entre posições, por exemplo,
 
 \begin{lstlisting}
->>> s[5:10]
-'mundo'
+s[5:10]
 \end{lstlisting}
+
+\begin{verbatim}
+'mundo'
+\end{verbatim}
 
 o que nos fornece a fatia de caracteres que inicia na posição $5$ e termina na posição $9$. Ou ainda,
 
 \begin{lstlisting}
->>> s[6:]
-'undo!'
+s[6:]
 \end{lstlisting}
+
+\begin{verbatim}
+'undo!'
+\end{verbatim}
 
 Também, pode-se controlar o passo do fatiamento, por exemplo
 
 \begin{lstlisting}
->>> 'laura'[::2]
-'lua'
+'laura'[::2]
 \end{lstlisting}
+
+\begin{verbatim}
+'lua'
+\end{verbatim}
 
 Em {\python}, exitem diversas \hl{formas de escrever \texttt{strings}}:
 \begin{itemize}
 \item \hlemph{aspas simples}
 
 \begin{lstlisting}[xrightmargin=2.5em]
->>> 'permitem aspas "duplas" embutidas'
-'permitem aspas "duplas" embutidas'
+print('permitem aspas "duplas" embutidas')
 \end{lstlisting}
+
+\begin{verbatim}
+permitem aspas "duplas" embutidas
+\end{verbatim}
 
 \item \hlemph{aspas duplas}
 
 \begin{lstlisting}[xrightmargin=2.5em]
->>> "permitem aspas 'simples' embutidas"
-"permitem aspas 'simples' embutidas"
+print("permitem aspas 'simples' embutidas")
 \end{lstlisting}
+
+\begin{verbatim}
+permitem aspas 'simples' embutidas
+\end{verbatim}
 
 \item \hlemph{aspas triplas}
 
 \begin{lstlisting}[xrightmargin=2.5em]
->>> '''
-... permitem
-...   "diversas"
-... linhas
-... '''
-'\npermitem\n  "diversas"\nlinhas\n'
->>> """
-... permitem
-...   'diversas'
-... linhas
-... """
-"\npermitem\n  'diversas'\nlinhas\n"
+print('''
+permitem
+"diversas"
+linhas
+''')
 \end{lstlisting}
+
+\begin{verbatim}
+permitem
+"diversas"
+linhas  
+\end{verbatim}
+
+\begin{lstlisting}
+print("""
+permitem
+'diversas'
+linhas
+""")
+\end{lstlisting}
+
+\begin{verbatim}
+permitem
+'diversas'
+linhas  
+\end{verbatim}
+  
 \end{itemize}
 
-\texttt{strings} em {\python} usam o padrão \href{https://home.unicode.org/}{Unicode}, que nos permite manipular textos de forma muito próxima da linguagem natural. Alguns caracteres especiais úteis são:
+Em {\python}, \texttt{strings} usam o padrão \href{https://home.unicode.org/}{Unicode}, que permite manipular textos de forma muito próxima da linguagem natural. Alguns caracteres especiais úteis são:
 \begin{itemize}
 \item \lstinline+'\n'+ \hlemph{nova linha}
 
 \begin{lstlisting}[xrightmargin=2.5em]
->>> print('Uma nova\nlinha')
-Uma nova
-linha
+print('Uma nova\nlinha')
 \end{lstlisting}
+
+\begin{verbatim}
+Uma nova
+linha  
+\end{verbatim}
 
 \item \lstinline+'\t'+ \hlemph{tabulação}
 
 \begin{lstlisting}[xrightmargin=2.5em]
->>> print('Uma nova\n\t linha com tabulação')
-Uma nova
- 	 linha com tabulação
+print('Uma nova\n\t linha com tabulação')
 \end{lstlisting}
+
+\begin{verbatim}
+Uma nova
+  linha com tabulação
+\end{verbatim}
 \end{itemize}
 
 \begin{obs}\normalfont{(\hl{\textit{Raw string}}.)}
   Caso seja necessário imprimir os caracteres unicode especiais \lstinline+'\\n'+, \lstinline+'\\t'+, entre outros, pode-se usar \textit{raw strings}. Por exemplo,
 
 \begin{lstlisting}
->>> print(r'Aqui, o \n não quebra a linha!')
-Aqui, o \n não quebra a linha!
+print(r'Aqui, o \n não quebra a linha!')
 \end{lstlisting}
+
+\begin{verbatim}
+Aqui, o \n não quebra a linha!
+\end{verbatim}
+
 \end{obs}
 
 \subsection{Formatação de \texttt{strings}}\label{cap_lingua_sec_string:subsec:format}
@@ -2051,34 +2211,45 @@ Aqui, o \n não quebra a linha!
 Em {\python}, \hl{\texttt{strings} formatadas} são identificadas com a letra \lstinline+f+ no início. Elas \hl{aceitam o uso de identificadores} com valores predefinidos. Os identificadores são \hl{embutidos com} o uso de \hl{chaves} \lstinline+{}+ (\textit{placeholder}). Por exemplo,
 
 \begin{lstlisting}
->>> nome = 'Fulane'
->>> f'Olá, {nome}!'
-'Olá, Fulane!'
+nome = 'Fulane'
+print(f'Olá, {nome}!')
 \end{lstlisting}
+
+\begin{verbatim}
+'Olá, Fulane!'
+\end{verbatim}
 
 Há várias \hl{especificações de formatação} disponíveis\footnote{Consulte na \textit{web} por \href{https://docs.python.org/3/library/string.html\#format-specification-mini-language}{Python Docs:String: Format Specification Mini-Language} para uma lista completa.}:
 \begin{itemize}
 \item \lstinline+'d'+ \hlemph{número inteiro}
 
 \begin{lstlisting}[xrightmargin=2.5em]
->>> print(f'10/3 é igual a {10//3:d} e \
-... resta {10%3:d}.')
-10/3 é igual a 3 e resta 1.
+print(f'10/3 é igual a {10//3:d} e resta {10%3:d}.')
 \end{lstlisting}
+
+\begin{verbatim}
+10/3 é igual a 3 e resta 1.
+\end{verbatim}
 
 \item \lstinline+'f'+ \hlemph{número decimal}
 
 \begin{lstlisting}[xrightmargin=2.5em]
->>> print(f'13/7 é aproximadamente {13/7:.3f}')
-13/7 é aproximadamente 1.857
+print(f'13/7 é aproximadamente {13/7:.3f}')
 \end{lstlisting}
+
+\begin{verbatim}
+13/7 é aproximadamente 1.857
+\end{verbatim}
 
 \item \lstinline+'e'+ \hlemph{notação científica normalizada}
 
 \begin{lstlisting}[xrightmargin=2.5em]
->>> print(f'103/7 é aproximadamente {103/7:.3e}')
-103/7 é aproximadamente 1.471e+01
+print(f'103/7 é aproximadamente {103/7:.3e}')
 \end{lstlisting}  
+
+\begin{verbatim}
+103/7 é aproximadamente 1.471e+01
+\end{verbatim}
 
 \end{itemize}
 
@@ -2089,24 +2260,33 @@ Em {\python}, há uma grande variedade disponível de \hl{métodos para a manipu
 \item \lstinline*+* \hlemph{concatenação}
 
 \begin{lstlisting}[xrightmargin=2.5em]
->>> s = 'Olá, mundo!'
->>> s[:5] + 'Fulane!'
-'Olá, Fulane!'
+s = 'Olá, mundo!'
+s[:5] + 'Fulane!'
 \end{lstlisting}
+
+\begin{verbatim}
+'Olá, Fulane!'
+\end{verbatim}
 
 \item \lstinline+*+ \hlemph{repetição}
 
 \begin{lstlisting}[xrightmargin=2.5em]
->>> 'ha'*3
-'hahaha'
+'ha'*3
 \end{lstlisting}
+
+\begin{verbatim}
+'hahaha'
+\end{verbatim}
 
 \item \lstinline+in+ \hlemph{pertence}
 
 \begin{lstlisting}[xrightmargin=2.5em]
->>> 'mar' in 'amarelo'
-True
+'mar' in 'amarelo'
 \end{lstlisting}
+
+\begin{verbatim}
+True
+\end{verbatim}
 
 \end{itemize}
 
@@ -2115,35 +2295,58 @@ True
 O método {\PYTHONinput} pode ser usado para a \hl{entrada de \texttt{string}} via teclado. Por exemplo,
 
 \begin{lstlisting}
->>> s = input('Digite seu nome.\n')
-Digite seu nome.
-Fulane
->>> s
-'Fulane'
+s = input('Digite seu nome: ')
+print(f'Olá, {s}.')
 \end{lstlisting}
 
-A instrução da linha 1 pede para que a variável \lstinline+s+ receba a \texttt{string} a ser digitada pela(o) usuária(o). A \texttt{string} entre parênteses é informativa, o comando {\PYTHONinput}, imprime esta mensagem e fica aguardado que uma nova \texttt{string} seja digitada. Quando o usuário pressiona \lstinline+<ENTER>+, a \texttt{string} digitada é alocada na variável \lstinline+s+.
+\begin{verbatim}
+Digite seu nome: Fulane
+Olá, Fulane.
+\end{verbatim}
+
+A instrução da linha 1 pede para que a variável \lstinline+s+ receba a \texttt{string} a ser digitada por usuária(o). A \texttt{string} entre parênteses é informativa, o comando {\PYTHONinput}, imprime esta mensagem e fica aguardado que uma nova \texttt{string} seja digitada. Quando o usuário pressiona \lstinline+<ENTER>+, a \texttt{string} digitada é alocada na variável \lstinline+s+.
 
 \subsubsection{Conversão de Classes de Dados}
 
 A \hl{conversão entre classes de dados} é possível e é feita por métodos próprios de cada classe. Por exemplo,
 
 \begin{lstlisting}
->>> # int -> str
->>> str(101)
-'101'
->>> # str -> int
->>> int('23')
-23
->>> # int -> float
->>> float(1)
-1.0
->>> # float -> int
->>> int(-2.9)
--2
+# int -> str
+str(101)
 \end{lstlisting}
 
-\hl{Atenção! Na conversão de {\PYTHONfloat} para \PYTHONint, fica-se apenas com a parte inteiro do número}.
+\begin{verbatim}
+'101'
+\end{verbatim}
+
+\begin{lstlisting}
+  # str -> int
+  int('23')
+\end{lstlisting}
+
+\begin{verbatim}
+23
+\end{verbatim}
+
+\begin{lstlisting}
+# int -> float
+float(1)  
+\end{lstlisting}
+
+\begin{verbatim}
+1.0
+\end{verbatim}
+
+\begin{lstlisting}
+# float -> int
+int(-2.9)
+\end{lstlisting}
+
+\begin{verbatim}
+-2
+\end{verbatim}
+
+\hl{Atenção! Na conversão de {\PYTHONfloat} para \PYTHONint, fica-se apenas com a parte inteira do número}.
 
 \begin{obs}
   O método {\PYTHONinput} permite a entrada de \texttt{strings}, que podem ser convertidas para outras classes de dados. Com isso, pode-se obter a entrada via teclado destes dados.
@@ -2151,10 +2354,6 @@ A \hl{conversão entre classes de dados} é possível e é feita por métodos pr
 
 \begin{ex}
   O seguinte código, computa a área de um triângulo com base e altura fornecidas por usuária(o).
-
-\ifisbook
-\vspace{0.2cm}
-\fi
 
 \begin{lstlisting}
 # entrada de dados
@@ -2174,6 +2373,23 @@ print(f'é igual a {area:e}')
 \end{ex}
 
 \subsection{Exercícios}
+
+\begin{exer}
+  Com base na linguagem {\python}, complete as lacunas.
+  \begin{enumerate}[a)]
+    % a)
+    \item \underline{\phantom{Caractere}} é qualquer letra, símbolo, sinal ou dígito representado em forma escrita.
+    % b)
+    \item \texttt{String} é uma sequência \underline{\phantom{caracteres}}.
+    % c)
+    \item Usam-se \underline{\phantom{aspas}} para a entrada de \texttt{strings}.
+    % d)
+    \item O caractere especial \underline{\phantom{\lstinline{'\n'}}} insere uma nova linha, enquanto que o \lstinline{'\t'} insere uma \underline{\phantom{tabulação}}.
+  \end{enumerate}
+\end{exer}
+\begin{resp}
+  a) caractere. b) sequência de caracteres. c) aspas. d) \lstinline{'\n'}; tabulação.
+\end{resp}
 
 \begin{exer}
   Aloque a palavra \textit{traitor} em uma variável $x$. Use de indexação por referência para:
@@ -2203,7 +2419,7 @@ Sem implementá-lo, o que é impresso?
 \end{resp}
 
 \begin{exer}
-  Desenvolva um contador de letras de palavras. Ou seja, crie um código que forneça o número de letras de uma palavra fornecida por um(a) usuário(a).
+  Desenvolva um contador de letras de palavras. Ou seja, crie um código que forneça o número de letras de uma palavra fornecida por usuário(a).
 \end{exer}
 \begin{resp}
 
@@ -2215,7 +2431,7 @@ print(f'A palavra {s} tem {len(s)} letras.')
 \end{resp}
 
 \begin{exer}
-  Desenvolva um código que compute a área de um quadrado de lado fornecido pela(o) usuária(o). Assuma que o lado é dado em centímetros e a área deve ser impressa em metros, usando notação decimal com $2$ dígitos depois da vírgula.
+  Desenvolva um código que compute a área de um quadrado de lado fornecido por usuária(o). Assumindo que o lado é dado em centímetros, a área deve ser impressa em metros, usando notação decimal com $2$ dígitos depois da vírgula.
 \end{exer}
 \begin{resp}
 
@@ -2228,18 +2444,22 @@ print(f'O quadrado de lado {lado:e} cm tem área {area:.2f} m.')
 \end{resp}
 
 \begin{exer}
-  Desenvolva um código que verifica se um número é divisível por outro. Ou seja, a(o) usuária entra com dois números inteiros e o código imprime verdadeiro ({\PYTHONTrue}) ou ({\PYTHONFalse}) conforme a divisibilidade de $x$ por $y$.
+  Desenvolva um código que verifica se um número é divisível por outro. Ou seja, a(o) usuária(o) entra com dois números inteiros e o código imprime verdadeiro ({\PYTHONTrue}) ou ({\PYTHONFalse}) conforme a divisibilidade de $x$ por $y$.
 \end{exer}
 \begin{resp}
 
 \begin{lstlisting}
 x = int(input('Digite um número inteiro:\n'))
-y = int(input('Digite outro número inteiro:\n'))
+y = int(input('Digite outro número inteiro não nulo:\n'))
 print(f'{x} é divisível por {y}?')
 print(f'{x%y==0}')
 \end{lstlisting}
 
 \end{resp}
+
+\begin{exer}
+  Desenvolva um código que computa a área de um triângulo de base e altura informadas por usuária(o). O resultado deve ser impresso em notação científica normalizada com três dígitos.
+\end{exer}
 
 \ifisbook
 \subsubsection{Respostas}
